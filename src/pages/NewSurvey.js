@@ -65,9 +65,18 @@ class NewSurvey extends Component {
             (this.state.submit ? "" : "hidden")
           }
         >
-          <button className="bg-blue-500 rounded px-14 py-3 block uppercase tracking-wide text-white text-m font-bold ">
+          <a
+            href="/CopyLink"
+            className="bg-blue-500 rounded px-14 py-3 block uppercase tracking-wide text-white text-m font-bold "
+          >
             Submit
-          </button>
+          </a>
+          <a
+            href="/CopyLink"
+            className="ml-5 bg-white rounded border border-blue-500 px-14 py-3 block uppercase tracking-wide text-blue-500 text-m font-bold "
+          >
+            Survey link
+          </a>
         </div>
       </div>
     );
