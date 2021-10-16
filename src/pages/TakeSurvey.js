@@ -28,14 +28,30 @@ class TakeSurvey extends Component {
   }
   render() {
     return (
-      <div className="pt-10">
+      <div className="bg-gray-50 pt-10">
         <NavBar />
+        <div className="mx-10 mt-10">
+          <h1
+            className={
+              "bg-gray-50 text-3xl appearance-none block w-full font-bold text-gray-900 border-b focus:border-blue-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
+            }
+          >
+            {this.state.survey.title}
+          </h1>
+          <h1 className="bg-white appearance-none block w-full  text-gray-700 border focus:border-blue-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white">
+            {this.state.survey.description}
+          </h1>
+        </div>
         {this.state.survey.qsts
           .slice(0)
           .reverse()
           .map((element) => {
             return (
-              <AnswerQst qst={element} validateAnswer={this.validateAnswer} />
+              <AnswerQst
+                key={element.id}
+                qst={element}
+                validateAnswer={this.validateAnswer}
+              />
             );
           })}
         <div className={"flex items-center justify-center mx-14"}>

@@ -7,14 +7,14 @@ let surveys = [
       {
         id: 0,
         question: "qst0",
-        description: "",
+        description: "how are u",
         answeryes: "yes",
         answerno: "no",
       },
       {
         id: 1,
         question: "qst1",
-        description: "",
+        description: "how are you",
         answeryes: "yes",
         answerno: "no",
       },

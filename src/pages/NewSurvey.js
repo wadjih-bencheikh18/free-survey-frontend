@@ -3,6 +3,7 @@ import AddQst from "../components/addQst";
 import NewQst from "../components/NewQst";
 import { Component } from "react";
 import Qst from "../components/Qst";
+import { navigate } from "gatsby-link";
 
 class NewSurvey extends Component {
   constructor(props) {
@@ -10,14 +11,20 @@ class NewSurvey extends Component {
     // Don't call this.setState() here!
     this.state = {
       id: 0,
+      title: "",
+      description: "",
       AddQst: true,
       qsts: [],
       submit: false,
+      errorStyle: "",
     };
     this.AddNewQst = this.AddNewQst.bind(this);
     this.DelNewQst = this.DelNewQst.bind(this);
     this.PushQst = this.PushQst.bind(this);
     this.RmQst = this.RmQst.bind(this);
+    this.TitleChange = this.TitleChange.bind(this);
+    this.DescriptionChange = this.DescriptionChange.bind(this);
+    this.save = this.save.bind(this);
   }
   DelNewQst() {
     this.setState({ AddQst: false });
@@ -42,12 +49,54 @@ class NewSurvey extends Component {
       this.setState({ submit: false });
     }
     this.setState({ qsts: qsts });
-    
   }
+
+  TitleChange(event) {
+    this.setState({ title: event.target.value });
+  if (this.state.title !== "") {
+    this.setState({
+      errorStyle: "",
+    });
+  } 
+  }
+
+  DescriptionChange(event) {
+    this.setState({ description: event.target.value });
+  }
+  save(){
+    if (this.state.title === "") {
+      this.setState({
+        errorStyle: "border-red-500",
+      });
+  }
+  else navigate("/CopyLink/")
+}
   render() {
     return (
       <div className="bg-gray-50 min-h-screen pt-10">
         <AddQst AddQst={this.AddNewQst} />
+        <div className="mx-10 mt-10">
+          <input
+            className={
+              "bg-gray-50 text-3xl appearance-none block w-full font-bold text-gray-900 border-b focus:border-blue-500 py-3 px-4 mb-3 leading-tight focus:outline-none " +
+              this.state.errorStyle
+            }
+            id="question"
+            type="text"
+            placeholder="Survey Title"
+            value={this.state.title}
+            onChange={this.TitleChange}
+          />
+          <input
+            className="appearance-none block w-full  text-gray-700 border focus:border-blue-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+            id="description"
+            type="text"
+            placeholder="Description(optional)"
+            value={this.state.description}
+            onChange={this.DescriptionChange}
+          />
+        </div>
+
         <NewQst
           DelQst={this.DelNewQst}
           hidden={this.state.AddQst ? "" : "hidden"}
@@ -57,7 +106,14 @@ class NewSurvey extends Component {
           .slice(0)
           .reverse()
           .map((element) => {
-            return <Qst qst={element} value={true} RmQst={this.RmQst} />;
+            return (
+              <Qst
+                key={element.id}
+                qst={element}
+                value={true}
+                RmQst={this.RmQst}
+              />
+            );
           })}
         <div
           className={
@@ -71,13 +127,12 @@ class NewSurvey extends Component {
           >
             Results
           </a>
-          <a
+          <button
             onClick={this.save}
-            href="/CopyLink"
             className="ml-5 bg-white rounded border border-blue-500 px-14 py-3 block uppercase tracking-wide text-blue-500 text-m font-bold "
           >
             Survey link
-          </a>
+          </button>
         </div>
       </div>
     );
