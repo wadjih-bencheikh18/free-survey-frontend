@@ -6,21 +6,21 @@ class CopyLink extends Component {
       <div className="bg-gray-50  md:py-44 py-60 px-5">
         <h2 className=" font-extrabold tracking-tight text-gray-900 sm:text-4xl">
           <span className="text-5xl block text-center mb-20">Free Survey</span>
-          <span className="text-2xl mt-3 block text-center text-indigo-600">
+          <span className="text-2xl mt-3 block text-center text-blue-500">
             Copy your survey link
           </span>
         </h2>
         <div className="mt-6 grid grid-cols-12 gap-4 ">
           <button
             type="button"
-            className="lg:col-start-5 lg:col-span-4 md:col-start-4 md:col-span-6 col-start-3 md: col-span-8 shadow text-center px-5  border-transparent text-base font-medium  text-white bg-indigo-600 hover:bg-indigo-700 hover:text-gray-900 font-mono leading-6 py-3 sm:px-6 border border-gray-200 rounded-xl flex items-center justify-center space-x-2 sm:space-x-4 "
+            className="lg:col-start-5 lg:col-span-4 md:col-start-4 md:col-span-6 col-start-3 md: col-span-8 shadow text-center px-5  border-transparent text-base font-medium  text-white bg-blue-500 hover:bg-blue-500 hover:text-gray-900 font-mono leading-6 py-3 sm:px-6 border border-gray-200 rounded-xl flex items-center justify-center space-x-2 sm:space-x-4 "
           >
             <span className="text-white ">
               <span
                 className="hidden sm:inline text-white"
                 aria-hidden="true"
               ></span>
-              http://localhost:3000/6584656184
+              http://localhost:3000/{this.props.id}
             </span>
             <span className="sr-only">(click to copy to clipboard)</span>
             <svg

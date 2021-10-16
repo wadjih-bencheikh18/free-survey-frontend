@@ -145,7 +145,7 @@ class NewQst extends Component {
               <button
                 onClick={this.TestInputs}
                 type="button"
-                className="bg-blue-500 text-white p-2 rounded mx-7"
+                className="bg-blue-500 text-white py-2 px-5 rounded mx-7"
               >
                 Done
               </button>

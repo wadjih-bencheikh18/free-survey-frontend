@@ -57,7 +57,7 @@ class NewSurvey extends Component {
           .slice(0)
           .reverse()
           .map((element) => {
-            return <Qst qst={element} RmQst={this.RmQst} />;
+            return <Qst qst={element} value={true} RmQst={this.RmQst} />;
           })}
         <div
           className={
@@ -66,12 +66,13 @@ class NewSurvey extends Component {
           }
         >
           <a
-            href="/CopyLink"
+            href="/Results"
             className="bg-blue-500 rounded px-14 py-3 block uppercase tracking-wide text-white text-m font-bold "
           >
-            Submit
+            Results
           </a>
           <a
+            onClick={this.save}
             href="/CopyLink"
             className="ml-5 bg-white rounded border border-blue-500 px-14 py-3 block uppercase tracking-wide text-blue-500 text-m font-bold "
           >
