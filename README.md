@@ -22,10 +22,10 @@ I-Backend: <br />
 &nbsp;&nbsp;&nbsp;c- go to cloned repo :  <br />
 &nbsp;&nbsp;&nbsp;&nbsp; cd free-survey-backend <br />
 &nbsp;2- install packages : <br />
-&nbsp;&nbsp;&nbsp; yarn install or > npm install <br />
+&nbsp;&nbsp;&nbsp; yarn install<br />
 &nbsp;&nbsp;&nbsp;(to install yarn : https://classic.yarnpkg.com/en/docs/install) <br />
 &nbsp;3- start our local server in port 8080 : <br />
-&nbsp;&nbsp;> npm start <br />
+&nbsp;&nbsp;> yarn start <br />
  <br />
 II-Fontend: <br />
 &nbsp;1- clone backend project: <br />
@@ -36,10 +36,10 @@ II-Fontend: <br />
 &nbsp;&nbsp;&nbsp;c- go to cloned repo :  <br />
 &nbsp;&nbsp;&nbsp;&nbsp; cd free-survey-fontend <br />
 &nbsp;2- install packages : <br />
-&nbsp;&nbsp;&nbsp; yarn install or  npm install <br />
+&nbsp;&nbsp;&nbsp; yarn install <br />
 &nbsp;&nbsp;&nbsp;&nbsp;(to install yarn : https://classic.yarnpkg.com/en/docs/install) <br />
 &nbsp;3- start your local website http://localhost:8000 : <br />
-&nbsp;&nbsp;&nbsp; npm start <br />
+&nbsp;&nbsp;&nbsp; yarn start <br />
 &nbsp;4- enter the website using navigator on: http://localhost:8000 <br />
  <br />
  <br />
