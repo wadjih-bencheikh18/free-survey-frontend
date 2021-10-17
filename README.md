@@ -18,7 +18,7 @@ I-Backend: <br />
 &nbsp;&nbsp;&nbsp;a- open your cmd <br />
 &nbsp;&nbsp;&nbsp;b- tape :  <br />
 &nbsp;&nbsp;&nbsp;&nbsp; git clone https://github.com/wadjih-bencheikh18/free-survey-backend.git  <br />
-&nbsp;&nbsp;&nbsp;&nbsp;(to install git : https://git-scm.com/book/en/v2/ <br />Getting-Started-Installing-Git) <br />
+&nbsp;&nbsp;&nbsp;&nbsp;(to install git : https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) <br />
 &nbsp;&nbsp;&nbsp;c- go to cloned repo :  <br />
 &nbsp;&nbsp;&nbsp;&nbsp; cd free-survey-backend <br />
 &nbsp;2- install packages : <br />
@@ -32,12 +32,10 @@ II-Fontend: <br />
 &nbsp;&nbsp;&nbsp;a- open your cmd <br />
 &nbsp;&nbsp;&nbsp;b- clone :  <br />
 &nbsp;&nbsp;&nbsp;&nbsp;git clone https://github.com/wadjih-bencheikh18/free-survey-fontend.git  <br />
-&nbsp;&nbsp;&nbsp;&nbsp;(to install git : https://git-scm.com/book/en/v2Getting-Started-Installing-Git) <br />
 &nbsp;&nbsp;&nbsp;c- go to cloned repo :  <br />
 &nbsp;&nbsp;&nbsp;&nbsp; cd free-survey-fontend <br />
 &nbsp;2- install packages : <br />
 &nbsp;&nbsp;&nbsp; yarn install <br />
-&nbsp;&nbsp;&nbsp;&nbsp;(to install yarn : https://classic.yarnpkg.com/en/docs/install) <br />
 &nbsp;3- start your local website http://localhost:8000 : <br />
 &nbsp;&nbsp;&nbsp; yarn start <br />
 &nbsp;4- enter the website using navigator on: http://localhost:8000 <br />
