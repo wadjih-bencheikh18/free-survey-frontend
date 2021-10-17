@@ -8,10 +8,10 @@ class ResultQst extends Component {
       >
         <div className="px-4 py-5 sm:px-6">
           <div className="w-full mt-5 ml-2">
-            <h1 className=" text-2xl block appearance-none w-full  uppercase tracking-wide text-gray-900 text-m font-bold mb-2">
+            <h1 className=" text-2xl block break-normal appearance-none w-full  uppercase tracking-wide text-gray-900 text-m font-bold mb-2">
               {this.props.qst.question}
             </h1>
-            <p className="appearance-none block w-full  text-gray-600">
+            <p className="appearance-none break-normal block w-full  text-gray-600">
               {this.props.qst.description}
             </p>
           </div>
@@ -27,7 +27,7 @@ class ResultQst extends Component {
                     checked={this.props.value}
                     readOnly
                   />
-                  <span className="ml-2 border rounded w-full py-2 pl-2">
+                  <span className="ml-2 border break-normal rounded w-full py-2 pl-2">
                     {this.props.qst.answeryes}
                   </span>
                 </label>
@@ -42,7 +42,7 @@ class ResultQst extends Component {
                     checked={!this.props.value}
                     readOnly
                   />
-                  <span className="ml-2 border rounded w-full py-2 pl-2">
+                  <span className="ml-2 border break-normal rounded w-full py-2 pl-2">
                     {this.props.qst.answerno}
                   </span>
                 </label>

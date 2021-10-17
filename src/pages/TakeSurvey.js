@@ -67,14 +67,14 @@ class TakeSurvey extends Component {
         <div className="mx-10 mt-10">
           <h1
             className={
-              "bg-gray-50 text-3xl appearance-none block w-full font-bold text-gray-900 border-b focus:border-blue-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
+              "bg-gray-50 text-3xl appearance-none block w-full font-bold text-gray-900 border-b-2 border-blue-500 py-3 px-4 mb-3 leading-tight focus:outline-none "
             }
           >
             {this.state.survey.title}
           </h1>
           <h1
             className={
-              "bg-white appearance-none block w-full  text-gray-700 border focus:border-blue-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white " +
+              "bg-white shadow appearance-none block w-full  text-gray-700 border focus:border-blue-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white " +
               (this.state.survey.description === "" ? "hidden" : "")
             }
           >

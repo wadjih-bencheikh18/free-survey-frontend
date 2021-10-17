@@ -29,14 +29,10 @@ class CopyLink extends Component {
               );
             }}
             type="button"
-            className="shadow text-center px-4 md:px-5  border-transparent md:text-base text-sm font-medium  text-white bg-blue-500 hover:bg-blue-500 hover:text-gray-900 font-mono leading-6 py-3 sm:px-6 border border-gray-200 rounded-xl flex items-center justify-center "
+            className="shadow text-center px-4 md:px-5  border-transparent md:text-base text-sm font-medium  text-white bg-blue-500 hover:bg-indigo-600  font-mono leading-6 py-3 sm:px-6 border border-gray-200 rounded-xl flex items-center justify-center "
           >
-            <span className="text-white ">
-              <span
-                className="hidden sm:inline text-white"
-                aria-hidden="true"
-              ></span>
-              http://localhost:8000/ TakeSurvey?
+            <span className="text-white mr-3 break-normal">
+              http://localhost:8000/TakeSurvey?
               {window.location.href.split("?", 2)[1] || ""}
             </span>
             <svg
@@ -54,10 +50,10 @@ class CopyLink extends Component {
             </svg>
           </button>
         </div>
-        <div className="md:text-base text-sm mt-6 flex justify-center">
+        <div className="md:text-base  text-sm mt-6 flex justify-center">
           <button
             onClick={this.results}
-            className="bg-blue-500 rounded px-14 py-3 block uppercase tracking-wide text-white text-m font-bold "
+            className="bg-blue-500 hover:bg-indigo-600  rounded px-14 py-3 block uppercase tracking-wide text-white text-m font-bold "
           >
             Results
           </button>

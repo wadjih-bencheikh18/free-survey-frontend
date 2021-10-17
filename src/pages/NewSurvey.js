@@ -117,7 +117,7 @@ class NewSurvey extends Component {
         <div className="mx-10 mt-10">
           <input
             className={
-              "bg-gray-50 text-3xl appearance-none block w-full font-bold text-gray-900 border-b focus:border-blue-500 py-3 px-4 mb-3 leading-tight focus:outline-none " +
+              "bg-gray-50 text-3xl appearance-none block w-full font-bold text-blue-900 border-b-2 focus:border-blue-500 py-3 px-4 mb-3 leading-tight focus:outline-none " +
               this.state.errorStyle
             }
             id="question"
@@ -127,7 +127,7 @@ class NewSurvey extends Component {
             onChange={this.TitleChange}
           />
           <input
-            className="appearance-none block w-full  text-gray-700 border focus:border-blue-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+            className="appearance-none block w-full shadow text-gray-700 border focus:border-blue-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
             id="description"
             type="text"
             placeholder="Description(optional)"
@@ -159,7 +159,7 @@ class NewSurvey extends Component {
         >
           <button
             onClick={this.save}
-            className="ml-5 bg-blue-500 rounded border  px-14 py-3 block uppercase tracking-wide text-white text-m font-bold "
+            className="ml-5 hover:bg-indigo-600 bg-blue-500 rounded border  px-14 py-3 block uppercase tracking-wide text-white text-m font-bold "
           >
             Submit
           </button>
