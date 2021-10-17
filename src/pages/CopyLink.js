@@ -12,6 +12,12 @@ class CopyLink extends Component {
         </h2>
         <div className="mt-6 grid grid-cols-12 gap-4 ">
           <button
+            onClick={() => {
+              navigator.clipboard.writeText(
+                "http://localhost:8000/TakeSurvey?" +
+                  (window.location.href.split("?", 2)[1] || "")
+              );
+            }}
             type="button"
             className="lg:col-start-5 lg:col-span-4 md:col-start-4 md:col-span-6 col-start-3 md: col-span-8 shadow text-center px-5  border-transparent text-base font-medium  text-white bg-blue-500 hover:bg-blue-500 hover:text-gray-900 font-mono leading-6 py-3 sm:px-6 border border-gray-200 rounded-xl flex items-center justify-center space-x-2 sm:space-x-4 "
           >
@@ -20,9 +26,9 @@ class CopyLink extends Component {
                 className="hidden sm:inline text-white"
                 aria-hidden="true"
               ></span>
-              http://localhost:3000/{this.props.id}
+              http://localhost:8000/TakeSurvey?
+              {window.location.href.split("?", 2)[1] || ""}
             </span>
-            <span className="sr-only">(click to copy to clipboard)</span>
             <svg
               width="24"
               height="24"

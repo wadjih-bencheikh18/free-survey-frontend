@@ -4,6 +4,7 @@ import NewQst from "../components/NewQst";
 import { Component } from "react";
 import Qst from "../components/Qst";
 import { navigate } from "gatsby-link";
+import axios from "contentful-management/node_modules/axios";
 
 class NewSurvey extends Component {
   constructor(props) {
@@ -53,24 +54,40 @@ class NewSurvey extends Component {
 
   TitleChange(event) {
     this.setState({ title: event.target.value });
-  if (this.state.title !== "") {
-    this.setState({
-      errorStyle: "",
-    });
-  } 
+    if (this.state.title !== "") {
+      this.setState({
+        errorStyle: "",
+      });
+    }
   }
 
   DescriptionChange(event) {
     this.setState({ description: event.target.value });
   }
-  save(){
+  save() {
+    
     if (this.state.title === "") {
       this.setState({
         errorStyle: "border-red-500",
       });
+    } else {
+      const id = Date.now().toString();
+      axios
+        .post("http://localhost:8080/AddSurvey", {
+          id: id,
+          title: this.state.title,
+          description: this.state.description,
+          qsts: this.state.qsts,
+          answers: []
+        })
+        .then(() => {
+          navigate("/CopyLink?"+id);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
   }
-  else navigate("/CopyLink/")
-}
   render() {
     return (
       <div className="bg-gray-50 min-h-screen pt-10">

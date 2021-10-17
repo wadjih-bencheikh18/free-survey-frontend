@@ -1,23 +1,52 @@
 import React, { Component } from "react";
-import surveys from "../data/Surveys";
 import AnswerQst from "../components/AnswerQst";
 import NavBar from "../components/NavBar";
-const id = 0;
+import axios from "axios";
+import { navigate } from "gatsby-link";
 class TakeSurvey extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: id,
-      survey: surveys.find((e) => e.id === id),
+      id: Number(window.location.href.split("?", 2)[1]),
+      surveys: [],
+      survey: {
+        qsts: []
+      },
       answers: [],
     };
     this.validateAnswer = this.validateAnswer.bind(this);
+    this.save = this.save.bind(this);
+  }
+  componentDidMount() {
+    axios
+      .get("http://localhost:8080/getSurveys")
+      .then((res) => {
+        this.setState({
+          surveys: res.data,
+        });
+        this.setState({
+          survey: this.state.surveys.find((e) => e.id === this.state.id),
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }
   save() {
-    surveys.find((e) => e.id === id).answers.push([...this.state.answers]);
+    axios
+      .post(
+        "http://localhost:8080/AddAnswer/" + this.state.id.toString(),
+        this.state.answers
+      )
+      .then((res) => {
+        console.log(res);
+        navigate("/Submitted");
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }
   validateAnswer(id, answer) {
-    console.log(this.state.answers);
     if (this.state.answers.find((e) => e.id === id)) {
       var answers = [...this.state.answers.filter((item) => item.id !== id)];
       this.setState({ answers: answers });
@@ -55,13 +84,12 @@ class TakeSurvey extends Component {
             );
           })}
         <div className={"flex items-center justify-center mx-14"}>
-          <a
-            href="/Submitted"
+          <button
             onClick={this.save}
             className="bg-blue-500 rounded px-14 py-3 block uppercase tracking-wide text-white text-m font-bold "
           >
             Submit
-          </a>
+          </button>
         </div>
       </div>
     );

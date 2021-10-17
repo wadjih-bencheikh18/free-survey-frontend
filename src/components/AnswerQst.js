@@ -10,8 +10,7 @@ class AnswerQst extends Component {
     this.handleChange=this.handleChange.bind(this)
   }
   handleChange = (e) => {
-    const { name, value } = e.target;
-    console.log({ name, value });
+    const { value } = e.target;
     this.setState({value:value})
     this.props.validateAnswer(this.state.id,value);
   };
