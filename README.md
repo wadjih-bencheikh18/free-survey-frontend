@@ -1,7 +1,7 @@
 This website made with  <br />
 <br />
 frontend : gatsby tailwind  <br />
-axios : integration <br />
+integration : axios <br />
 backend : nodejs express <br />
 <br />
 for Codelabs Academy FullStack Dev Challenge <br />
