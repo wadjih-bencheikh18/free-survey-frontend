@@ -1,8 +1,8 @@
 import * as React from "react";
-import AddQst from "../components/addQst";
+import AddQst from "../components/AddQstNav";
 import NewQst from "../components/NewQst";
 import { Component } from "react";
-import Qst from "../components/Qst";
+import ModifyQst from "../components/Qst/ModifyQst";
 import { navigate } from "gatsby-link";
 import axios from "contentful-management/node_modules/axios";
 
@@ -64,8 +64,7 @@ class NewSurvey extends Component {
   DescriptionChange(event) {
     this.setState({ description: event.target.value });
   }
-  results(){
-    
+  results() {
     if (this.state.title === "") {
       this.setState({
         errorStyle: "border-red-500",
@@ -78,18 +77,17 @@ class NewSurvey extends Component {
           title: this.state.title,
           description: this.state.description,
           qsts: this.state.qsts,
-          answers: []
+          answers: [],
         })
         .then(() => {
           navigate("/Results?" + id);
         })
         .catch((err) => {
-          console.error(err);
+          navigate("/404/", { state: { err } });
         });
-      }
+    }
   }
   save() {
-    
     if (this.state.title === "") {
       this.setState({
         errorStyle: "border-red-500",
@@ -102,19 +100,19 @@ class NewSurvey extends Component {
           title: this.state.title,
           description: this.state.description,
           qsts: this.state.qsts,
-          answers: []
+          answers: [],
         })
         .then(() => {
-          navigate("/CopyLink?"+id);
+          navigate("/CopyLink?" + id);
         })
         .catch((err) => {
-          console.error(err);
+            navigate("/404/", { state :{ err }});
         });
     }
   }
   render() {
     return (
-      <div className="bg-gray-50 min-h-screen pt-10">
+      <div className="bg-gray-50 min-h-screen py-10">
         <AddQst AddQst={this.AddNewQst} />
         <div className="mx-10 mt-10">
           <input
@@ -143,19 +141,16 @@ class NewSurvey extends Component {
           hidden={this.state.AddQst ? "" : "hidden"}
           PushQst={this.PushQst}
         />
-        {this.state.qsts
-          .slice(0)
-          .reverse()
-          .map((element) => {
-            return (
-              <Qst
-                key={element.id}
-                qst={element}
-                value={true}
-                RmQst={this.RmQst}
-              />
-            );
-          })}
+        {this.state.qsts.map((element) => {
+          return (
+            <ModifyQst
+              key={element.id}
+              qst={element}
+              value={true}
+              RmQst={this.RmQst}
+            />
+          );
+        })}
         <div
           className={
             "flex items-center justify-center mx-14 " +

@@ -1,17 +1,17 @@
 import * as React from "react"
 
-
-const NotFoundPage = (props) => {
+export default ({ location }) => {
   return (
-    <div className="bg-gray-50 md:py-56 py-60 px-5">
-      <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-        <span className="block text-center">404 Error</span>
-        <span className="mt-3 block text-center text-indigo-600">
-          {props.message}
+    <div className="bg-gray-50 min-h-screen md:py-56 py-60 px-5">
+      <h2 className=" font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+        <span className="sm:text-5xl text-4xl block text-center mb-10">
+          Error
+        </span>
+        <span className="sm:text-3xl text-2xl mt-3 block text-center text-indigo-600">
+          {location.state.err.message}
         </span>
       </h2>
     </div>
-  )
-}
+  );
+};
 
-export default NotFoundPage

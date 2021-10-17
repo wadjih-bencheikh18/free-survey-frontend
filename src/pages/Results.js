@@ -1,7 +1,8 @@
 import axios from "contentful-management/node_modules/axios";
+import { navigate } from "gatsby-link";
 import React, { Component } from "react";
 import NavBar from "../components/NavBar";
-import ShowQst from "../components/ShowQst";
+import ResultQst from "../components/Qst/ResultQst";
 class Results extends Component {
   constructor(props) {
     super(props);
@@ -29,7 +30,7 @@ class Results extends Component {
         });
       })
       .catch((err) => {
-        console.error(err);
+       navigate("/404/", { state: { err } });
       });
   }
   previous() {
@@ -51,7 +52,7 @@ class Results extends Component {
   viewAnswers() {}
   render() {
     return (
-      <div className=" bg-gray-50 pt-10 h-screen">
+      <div className="min-h-screen bg-gray-50 py-10 h-screen">
         <NavBar />
         <div className="mx-10 mt-10">
           <h1
@@ -92,7 +93,9 @@ class Results extends Component {
               />
             </svg>
           </button>
-          <h1 className="mx-10">Answer {this.state.answerid + 1}/{this.state.survey.answers.length}</h1>
+          <h1 className="mx-10">
+            Answer {this.state.answerid + 1}/{this.state.survey.answers.length}
+          </h1>
           <button onClick={this.next}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -111,17 +114,12 @@ class Results extends Component {
           </button>
         </div>
         {this.state.survey.answers.length > 0 ? (
-          this.state.answer
-            .slice(0)
-            .reverse()
-            .map((element) => {
-              const qst = this.state.survey.qsts.find(
-                (e) => e.id === element.id
-              );
-              return (
-                <ShowQst key={element.id} qst={qst} value={element.answer} />
-              );
-            })
+          this.state.answer.map((element) => {
+            const qst = this.state.survey.qsts.find((e) => e.id === element.id);
+            return (
+              <ResultQst key={element.id} qst={qst} value={element.answer} />
+            );
+          })
         ) : (
           <div className="h-auto font-semibold flex justify-center mt-40 text-2xl leading-tight">
             <h1>No Answers Yet...</h1>

@@ -7,7 +7,7 @@ class CopyLink extends Component {
   }
   render() {
     return (
-      <div className="bg-gray-50  md:py-36 py-40 px-5">
+      <div className="bg-gray-50 min-h-screen  md:py-36 py-40 px-5">
         <h2 className=" font-extrabold tracking-tight text-gray-900 sm:text-4xl">
           <span className="sm:text-5xl text-4xl block text-center mb-10">
             Free Survey

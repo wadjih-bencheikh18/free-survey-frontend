@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import AnswerQst from "../components/AnswerQst";
+import TakeQst from "../components/Qst/TakeQst";
 import NavBar from "../components/NavBar";
 import axios from "axios";
 import { navigate } from "gatsby-link";
@@ -31,7 +31,7 @@ class TakeSurvey extends Component {
         });
       })
       .catch((err) => {
-        console.error(err);
+        navigate("/404/", { state: { err } });
       });
   }
   save() {
@@ -44,7 +44,7 @@ class TakeSurvey extends Component {
         navigate("/Submitted");
       })
       .catch((err) => {
-        console.error(err);
+        navigate("/404/", { state: { err } });
       });
   }
   validateAnswer(id, answer) {
@@ -62,7 +62,7 @@ class TakeSurvey extends Component {
   }
   render() {
     return (
-      <div className="bg-gray-50 pt-10">
+      <div className="bg-gray-50 min-h-screen py-10">
         <NavBar />
         <div className="mx-10 mt-10">
           <h1
@@ -81,18 +81,15 @@ class TakeSurvey extends Component {
             {this.state.survey.description}
           </h1>
         </div>
-        {this.state.survey.qsts
-          .slice(0)
-          .reverse()
-          .map((element) => {
-            return (
-              <AnswerQst
-                key={element.id}
-                qst={element}
-                validateAnswer={this.validateAnswer}
-              />
-            );
-          })}
+        {this.state.survey.qsts.map((element) => {
+          return (
+            <TakeQst
+              key={element.id}
+              qst={element}
+              validateAnswer={this.validateAnswer}
+            />
+          );
+        })}
         <div className={"flex items-center justify-center mx-14"}>
           <button
             onClick={this.save}
