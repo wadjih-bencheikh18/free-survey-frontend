@@ -46,7 +46,7 @@ II-Fontend: <br />
  <br />
 How to add external data persistence? <br />
  <br />
-if we want to use external data persistence we reather use "MongoDb" by following the next steps: <br />
+if we want to use external data persistence we can do it with "MongoDb" by following the next steps: <br />
 1- add MongoDb and mongoose to our project: <br />
 &nbsp;&nbsp; yarn add mongodb mongoose -D <br />
 2- connect to our database (we can use atlas) <br />
