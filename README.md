@@ -1,54 +1,50 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
+This website made with 
+frontend : gatsby tailwind 
+axios : integration
+backend : nodejs express
 
-## 🚀 Quick start
 
-1.  **Create a Gatsby site.**
+to start the website locally you need two part(backend and front)
+backend : https://github.com/wadjih-bencheikh18/free-survey-backend
+frontend: https://github.com/wadjih-bencheikh18/free-survey-frontend
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+I-Backend:
+  1- clone backend project:
+    - open your cmd
+    - tape : 
+      > git clone https://github.com/wadjih-bencheikh18/free-survey-backend.git 
+        (to install git : https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+    - go to cloned repo : 
+      > cd free-survey-backend
+  2- install packages :
+      > yarn install or > npm install
+        (to install yarn : https://classic.yarnpkg.com/en/docs/install)
+  3- start our local server in port 8080 :
+      > npm start
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+II-Fontend:
+  1- clone backend project:
+    - open your cmd
+    - tape : 
+      > git clone https://github.com/wadjih-bencheikh18/free-survey-fontend.git 
+        (to install git : https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+    - go to cloned repo : 
+      > cd free-survey-fontend
+  2- install packages :
+      > yarn install or > npm install
+        (to install yarn : https://classic.yarnpkg.com/en/docs/install)
+  3- start your local website in port 8080 :
+      > npm start
+  4- enter the website using navigator on: http://localhost:8000
 
-2.  **Start developing.**
 
-    Navigate into your new site’s directory and start it up.
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+How to add external data persistence?
 
-3.  **Open the code and start customizing!**
-
-    Your site is now running at http://localhost:8000!
-
-    Edit `src/pages/index.js` to see your site update in real-time!
-
-4.  **Learn more**
-
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-## 🚀 Quick start (Gatsby Cloud)
-
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
-
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
+if we want to use external data persistence we reather use "MongoDb" by following the next steps:
+1- add MongoDb and mongoose to our project:
+  > yarn add Mongodb mongoose -D
+2- connect to our database (we can use atlas)
+  exmple :mongoose.connect("mongodb+srv://wadjih:<password>@freesurvey.4qkzo.mongodb.net/myFirstDatabase?retryWrites=true&  w=majority");
+3- create surveys mongoose Schema
+4- create our api using express router
