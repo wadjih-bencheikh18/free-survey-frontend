@@ -117,7 +117,7 @@ class NewSurvey extends Component {
         <div className="mx-10 mt-10">
           <input
             className={
-              "bg-gray-50 text-3xl appearance-none block w-full font-bold text-blue-900 border-b-2 focus:border-blue-500 py-3 px-4 mb-3 leading-tight focus:outline-none " +
+              "bg-gray-50 text-3xl appearance-none block w-full font-bold text-grey-900 placeholder-blue-400 border-b-2 focus:border-blue-500 py-3 px-4 mb-3 leading-tight focus:outline-none " +
               this.state.errorStyle
             }
             id="question"
@@ -125,6 +125,7 @@ class NewSurvey extends Component {
             placeholder="Survey Title"
             value={this.state.title}
             onChange={this.TitleChange}
+            autocomplete="off"
           />
           <input
             className="appearance-none block w-full shadow text-gray-700 border focus:border-blue-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
@@ -133,6 +134,7 @@ class NewSurvey extends Component {
             placeholder="Description(optional)"
             value={this.state.description}
             onChange={this.DescriptionChange}
+            autocomplete="off"
           />
         </div>
 

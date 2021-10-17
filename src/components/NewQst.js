@@ -90,6 +90,7 @@ class NewQst extends Component {
               placeholder="(Require)"
               value={this.state.question}
               onChange={this.QuestionChange}
+              autocomplete="off"
             />
             <input
               className="appearance-none break-normal block w-full  text-gray-700 border focus:border-blue-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
@@ -98,29 +99,32 @@ class NewQst extends Component {
               placeholder="Description(optional)"
               value={this.state.description}
               onChange={this.DescriptionChange}
+              autocomplete="off"
             />
           </div>
           <h1 className="block mt-7 uppercase tracking-wide text-blue-500 text-m font-bold mb-2">
             Options
           </h1>
-          <div className="w-full mt-3 border-b-2 focus:border focus:border-blue-500 focus:rounded mb-3">
+          <div className="w-full mt-3  mb-3">
             <input
-              className="appearance-none break-normal inline-block w-11/12  text-gray-700  py-3 px-4 leading-tight focus:outline-none "
+              className="appearance-none border-b-2  focus:border-blue-500 break-normal inline-block w-full  text-gray-700  py-3 px-4 leading-tight focus:outline-none "
               id="answeryes"
               type="text"
               placeholder="Yes(optional)"
               value={this.state.answeryes}
               onChange={this.AnswerYesChange}
+              autocomplete="off"
             />
           </div>
-          <div className="w-full mt-7 border-b-2 focus:border focus:border-blue-500 focus:rounded mb-3">
+          <div className="w-full mt-7  mb-3">
             <input
-              className="appearance-none break-normal inline-block w-11/12  text-gray-700  py-3 px-4 leading-tight focus:outline-none "
+              className="appearance-none border-b-2  focus:border-blue-500 break-normal inline-block w-full  text-gray-700  py-3 px-4 leading-tight focus:outline-none "
               id="answerno"
               type="text"
               placeholder="No(optional)"
               value={this.state.answerno}
               onChange={this.AnswerNoChange}
+              autocomplete="off"
             />
           </div>
           <div className="flex items-center justify-end mt-8 mb-2">
