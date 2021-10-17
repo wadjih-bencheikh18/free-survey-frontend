@@ -64,6 +64,30 @@ class NewSurvey extends Component {
   DescriptionChange(event) {
     this.setState({ description: event.target.value });
   }
+  results(){
+    
+    if (this.state.title === "") {
+      this.setState({
+        errorStyle: "border-red-500",
+      });
+    } else {
+      const id = Number(Date.now());
+      axios
+        .post("http://localhost:8080/AddSurvey", {
+          id: id,
+          title: this.state.title,
+          description: this.state.description,
+          qsts: this.state.qsts,
+          answers: []
+        })
+        .then(() => {
+          navigate("/Results?" + id);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+      }
+  }
   save() {
     
     if (this.state.title === "") {
@@ -138,17 +162,11 @@ class NewSurvey extends Component {
             (this.state.submit ? "" : "hidden")
           }
         >
-          <a
-            href="/Results"
-            className="bg-blue-500 rounded px-14 py-3 block uppercase tracking-wide text-white text-m font-bold "
-          >
-            Results
-          </a>
           <button
             onClick={this.save}
-            className="ml-5 bg-white rounded border border-blue-500 px-14 py-3 block uppercase tracking-wide text-blue-500 text-m font-bold "
+            className="ml-5 bg-blue-500 rounded border  px-14 py-3 block uppercase tracking-wide text-white text-m font-bold "
           >
-            Survey link
+            Submit
           </button>
         </div>
       </div>

@@ -16,10 +16,10 @@ class IndexPage extends Component {
             Create your survey for FREE!
           </span>
         </h2>
-        <div className="mt-10 grid grid-cols-7 gap-4 ">
+        <div className="mt-10 flex justify-center ">
           <button
             onClick={this.getStarted}
-            className="md:col-start-4 md:col-span-1 col-start-3 col-span-2 shadow text-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-500 hover:bg-blue-500"
+            className="shadow text-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-500 hover:bg-blue-500"
           >
             Get started
           </button>

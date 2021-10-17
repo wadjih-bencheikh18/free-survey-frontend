@@ -8,7 +8,7 @@ class ShowQst extends Component {
       >
         <div className="px-4 py-5 sm:px-6">
           <div className="w-full mt-5 ml-2">
-            <h1 className=" text-2xl block uppercase tracking-wide text-gray-900 text-m font-bold mb-2">
+            <h1 className=" text-2xl block appearance-none w-full  uppercase tracking-wide text-gray-900 text-m font-bold mb-2">
               {this.props.qst.question}
             </h1>
             <p className="appearance-none block w-full  text-gray-600">

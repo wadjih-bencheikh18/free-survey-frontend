@@ -8,9 +8,8 @@ class TakeSurvey extends Component {
     super(props);
     this.state = {
       id: Number(window.location.href.split("?", 2)[1]),
-      surveys: [],
       survey: {
-        qsts: []
+        qsts: [],
       },
       answers: [],
     };
@@ -19,13 +18,16 @@ class TakeSurvey extends Component {
   }
   componentDidMount() {
     axios
-      .get("http://localhost:8080/getSurveys")
+      .get("http://localhost:8080/getSurveys/" + this.state.id)
       .then((res) => {
         this.setState({
-          surveys: res.data,
+          survey: res.data,
         });
-        this.setState({
-          survey: this.state.surveys.find((e) => e.id === this.state.id),
+        this.state.survey.qsts.map((element) => {
+          this.setState((prevState) => ({
+            answers: [...prevState.answers, { id: element.id, answer: true }],
+          }));
+          return true;
         });
       })
       .catch((err) => {
@@ -39,7 +41,6 @@ class TakeSurvey extends Component {
         this.state.answers
       )
       .then((res) => {
-        console.log(res);
         navigate("/Submitted");
       })
       .catch((err) => {
@@ -47,13 +48,17 @@ class TakeSurvey extends Component {
       });
   }
   validateAnswer(id, answer) {
-    if (this.state.answers.find((e) => e.id === id)) {
-      var answers = [...this.state.answers.filter((item) => item.id !== id)];
-      this.setState({ answers: answers });
+    var index = this.state.answers.findIndex((obj) => obj.id === id);
+    if (index < 0) {
+      alert("error");
+      return;
     }
-    this.setState((prevState) => ({
-      answers: [...prevState.answers, { id: id, answer: answer }],
-    }));
+    var answers = [...this.state.answers];
+    answers[index].answer = answer === "true" ? true : false;
+    this.setState({ answers: answers });
+    this.setState({
+      answers: [...answers],
+    });
   }
   render() {
     return (
@@ -67,7 +72,12 @@ class TakeSurvey extends Component {
           >
             {this.state.survey.title}
           </h1>
-          <h1 className="bg-white appearance-none block w-full  text-gray-700 border focus:border-blue-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white">
+          <h1
+            className={
+              "bg-white appearance-none block w-full  text-gray-700 border focus:border-blue-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white " +
+              (this.state.survey.description === "" ? "hidden" : "")
+            }
+          >
             {this.state.survey.description}
           </h1>
         </div>

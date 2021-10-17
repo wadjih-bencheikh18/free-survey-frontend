@@ -1,16 +1,26 @@
+import { navigate } from "gatsby-link";
 import React, { Component } from "react";
 
 class CopyLink extends Component {
+  results(){
+    navigate("/Results?" + Number(window.location.href.split("?", 2)[1]));
+  }
   render() {
     return (
-      <div className="bg-gray-50  md:py-44 py-60 px-5">
+      <div className="bg-gray-50  md:py-36 py-40 px-5">
         <h2 className=" font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-          <span className="text-5xl block text-center mb-20">Free Survey</span>
-          <span className="text-2xl mt-3 block text-center text-blue-500">
-            Copy your survey link
+          <span className="sm:text-5xl text-4xl block text-center mb-10">
+            Free Survey
+          </span>
+          <span className="sm:text-2xl text-xl mt-3 block mb-2 text-center text-blue-500">
+            Creating survey successed
+          </span>
+
+          <span className="sm:text-2xl text-xl  mt-3 mb-10 block text-center text-blue-500">
+            Copy your survey link, or see results
           </span>
         </h2>
-        <div className="mt-6 grid grid-cols-12 gap-4 ">
+        <div className="mt-6 flex justify-center">
           <button
             onClick={() => {
               navigator.clipboard.writeText(
@@ -19,14 +29,14 @@ class CopyLink extends Component {
               );
             }}
             type="button"
-            className="lg:col-start-5 lg:col-span-4 md:col-start-4 md:col-span-6 col-start-3 md: col-span-8 shadow text-center px-5  border-transparent text-base font-medium  text-white bg-blue-500 hover:bg-blue-500 hover:text-gray-900 font-mono leading-6 py-3 sm:px-6 border border-gray-200 rounded-xl flex items-center justify-center space-x-2 sm:space-x-4 "
+            className="shadow text-center px-4 md:px-5  border-transparent md:text-base text-sm font-medium  text-white bg-blue-500 hover:bg-blue-500 hover:text-gray-900 font-mono leading-6 py-3 sm:px-6 border border-gray-200 rounded-xl flex items-center justify-center "
           >
             <span className="text-white ">
               <span
                 className="hidden sm:inline text-white"
                 aria-hidden="true"
               ></span>
-              http://localhost:8000/TakeSurvey?
+              http://localhost:8000/ TakeSurvey?
               {window.location.href.split("?", 2)[1] || ""}
             </span>
             <svg
@@ -42,6 +52,14 @@ class CopyLink extends Component {
            0 2.828 0 3.414.586C16 5.172 16 6.114 16 8"
               ></path>
             </svg>
+          </button>
+        </div>
+        <div className="md:text-base text-sm mt-6 flex justify-center">
+          <button
+            onClick={this.results}
+            className="bg-blue-500 rounded px-14 py-3 block uppercase tracking-wide text-white text-m font-bold "
+          >
+            Results
           </button>
         </div>
       </div>
