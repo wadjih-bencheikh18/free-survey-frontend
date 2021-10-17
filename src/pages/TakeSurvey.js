@@ -34,8 +34,8 @@ class TakeSurvey extends Component {
   }
   save() {
     axios
-      .post(
-        "http://localhost:8080/AddAnswer/" + this.state.id.toString(),
+      .put(
+        `http://localhost:8080/AddAnswer/${this.state.id}`,
         this.state.answers
       )
       .then((res) => {

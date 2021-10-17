@@ -71,7 +71,7 @@ class NewSurvey extends Component {
         errorStyle: "border-red-500",
       });
     } else {
-      const id = Date.now().toString();
+      const id = Number(Date.now());
       axios
         .post("http://localhost:8080/AddSurvey", {
           id: id,

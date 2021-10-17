@@ -34,7 +34,7 @@ class CopyLink extends Component {
               height="24"
               fill="none"
               stroke="currentColor"
-              stroke-width="1.5"
+              strokeWidth="1.5"
             >
               <path
                 d="M8 16c0 1.886 0 2.828.586 3.414C9.172 20 10.114 20 12 20h4c1.886 0 2.828 0 3.414-.586C20 18.828 20 17.886 20 16v-4c0-1.886 0-2.828-.586-3.414C18.828 8 17.886 8 16 8m-8
